@@ -1,0 +1,378 @@
+::-webkit-scrollbar {
+    width: 7px;
+    background-color: beige;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to top, rgb(0, 119, 255), rgb(71, 200, 255), rgb(0, 119, 255));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: grab;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    background: linear-gradient(to right, rgba(0, 195, 255, 0.575), white);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: change1 20s infinite ease-in-out;
+}
+
+@keyframes change1 {
+
+    0%,
+    100% {
+        background-image: url("../img/doctor-clinic.jpg")
+    }
+
+    20% {
+        background-image: url("../img/about-clinic.jpg")
+    }
+
+    40% {
+        background-image: url("../img/home-clinic.jpg")
+    }
+
+    60% {
+        background-image: url("../img/doctor-clinic.jpg")
+    }
+
+    80% {
+        background-image: url("../img/home-clinic.jpg")
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, rgb(0, 115, 255), rgb(0, 195, 255));
+    align-items: center;
+    font-size: 20px;
+    padding: 15px;
+    justify-content: space-between;
+    box-shadow: 0 -2px 0 5px rgb(255, 255, 255), inset 0 10px 1px rgb(2, 0, 94), 0 5px 50px 0 rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+}
+
+.firstname a {
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.489);
+    color: rgba(0, 255, 251, 0.899);
+    font-weight: 250;
+}
+
+.lastname a {
+    margin-left: 7.5px;
+    color: rgb(255, 255, 255);
+    font-weight: 550;
+}
+
+.brand-logo a {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    transform: translateX(-40px);
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 400px;
+}
+
+.navigation>li {
+    display: flex;
+    list-style-type: none;
+    padding: 15px;
+    margin-bottom: 25px;
+    margin-top: 100px;
+}
+
+.navigation>li>a {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.brand .lastname,
+.navigation li a {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.brand .firstname {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.navigation>li>a:hover {
+    color: rgba(0, 255, 251, 0.662);
+    transition: all .3s ease-in-out;
+}
+
+.login {
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    margin-left: 45px;
+}
+
+.login p {
+    display: flex;
+    margin-right: 60px;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 550;
+    color: rgba(0, 0, 0, 0.653);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.575);
+}
+
+.login a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-left: 65px;
+    width: 70px;
+    height: 35px;
+    background-color: rgba(2, 0, 94, 0.719);
+    font-size: 18px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 195, 255, 0.575);
+    text-decoration: none;
+}
+
+.login a:hover {
+    background-color: aqua;
+    color: rgba(0, 0, 0, 0.5);
+    transition: all .3s ease-in-out;
+}
+
+.garis {
+    height: 130px;
+    width: 10px;
+    background-color: rgb(2, 0, 94);
+    margin-right: -45px;
+}
+
+/* SECTION LOGIN START */
+.hero {
+    min-height: 75vh;
+    align-items: center;
+    padding: 8rem 7% 1.4rem;
+    position: relative;
+}
+
+.hero .content {
+    padding: 1.4rem 15%;
+    max-width: 60rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 125px;
+
+}
+
+.input {
+    background: linear-gradient(to top, rgb(0, 162, 255), rgb(80, 214, 255), rgb(0, 162, 255));
+    padding: 50px;
+    width: 270px;
+    box-shadow: 0px 0px 25px 10px rgba(69, 69, 69, 0.473);
+    border-radius: 30px;
+}
+
+.input h1 {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    letter-spacing: 3px;
+    padding-top: 0;
+    margin-top: -20px;
+}
+
+.kotak_input {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border-bottom: 2px solid white;
+    padding: 8px 0;
+}
+
+.kotak_input i {
+    font-size: 23px;
+    color: white;
+    padding: 5px 0;
+}
+
+.kotak_input input {
+    width: 85%;
+    padding: 5px 0;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+}
+
+.kotak_input input::placeholder {
+    color: white;
+}
+
+.input_btn .kotak_input input:hover {
+    background: rgba(10, 10, 10, .5);
+}
+
+.input_btn {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    background: none;
+    border: 1px solid white;
+    width: 92.5%;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all .2s;
+    border-radius: 10px;
+}
+
+.input_btn:hover {
+    background: rgb(0, 145, 236);
+}
+
+.bottom {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: -20px;
+}
+
+.bottom p {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.bottom a {
+    color: rgb(2, 0, 94);
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.bottom a:hover {
+    text-decoration: underline;
+}
+
+.garis {
+    height: 130px;
+    width: 10px;
+    background-color: rgb(2, 0, 94);
+    margin-right: -45px;
+}
+
+/* SECTION LOGIN END */
+
+/* FOOTER START */
+footer {
+    box-shadow: 0 2px 0 5px rgb(255, 255, 255), 0 3px 50px 0 rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to top, rgb(0, 115, 255), rgb(0, 195, 255));
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+}
+
+footer .credit {
+    font-size: 0.8rem;
+}
+
+footer .credit a {
+    color: #fff;
+    font-weight: 550;
+}
+
+footer .credit a:hover {
+    color: rgba(0, 0, 0, 0.514);
+}
+
+footer .socials {
+    padding: 1rem 0;
+}
+
+footer .socials a {
+    color: #fff;
+    margin: 1rem;
+}
+
+footer .socials a:hover {
+    color: rgba(0, 0, 0, 0.514);
+}
+
+footer .links a:hover {
+    color: rgba(0, 0, 0, 0.514);
+}
+
+footer .links {
+    margin-bottom: 1.1rem;
+}
+
+footer .links a {
+    color: #fff;
+    padding: .7rem 1rem;
+}
+
+/* FOOTER END */
+
+/* Media Queries */
+/* Laptop */
+@media (max-width: 1366px) {
+
+    *,
+    html,
+    body {
+        font-size: 75%;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+
+    *,
+    html,
+    body {
+        font-size: 62.5%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 450px) {
+
+    *,
+    html,
+    body {
+        font-size: 55%;
+    }
+}
