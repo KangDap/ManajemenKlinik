@@ -5,7 +5,7 @@
 @if($list_konsultasi->isNotEmpty())
 <div class="row">
     <div class="col-md-6">
-        <form action="/konsultasi">
+        <form action="dashboard/konsultasi">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Cari Data Konsultasi" name="search" value="{{request('search')}}">
                 <button class="btn btn-info" type="submit">Cari</button>

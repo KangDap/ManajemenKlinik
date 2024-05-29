@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\KonsultasiController;
+use App\Http\Controllers\DashboardKonsultasiController;
 use App\Models\Dokter;
-use App\Models\Konsultasi;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('home', [
@@ -39,4 +41,30 @@ Route::get('/dokter/{info_dokter:slug}', function (Dokter $info_dokter) {
     ]);
 });
 
-Route::get("/konsultasi", [KonsultasiController::class, "index"]);
+Route::get("/konsultasi", [DashboardKonsultasiController::class, "index"]);
+
+Route::resource("/dashboard/konsultasi", DashboardKonsultasiController::class)->middleware('auth');
+
+// Route Login
+
+Route::get("/login", [LoginController::class, "index"])->name('login')->middleware('guest');
+
+Route::post("/login", [LoginController::class, "authenticate"]);
+
+Route::post("/logout", [LoginController::class, "logout"]);
+
+// Route Register User
+
+Route::get("/register", [RegisterController::class, "index"])->middleware('guest');
+
+Route::post("/register", [RegisterController::class, "register"]);
+
+// Route Register Pasien
+
+Route::get("/register-pasien/{user}", [RegisterController::class, 'showRegisterPasien'])->name('registerPasien');
+
+Route::post('/register-pasien/{user}', [RegisterController::class, 'registerPasien']);
+
+// Route Dashboard Pasien
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
