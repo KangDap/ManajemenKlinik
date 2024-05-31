@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RodazaClinic">
+    <meta name="keywords" content="Klinik, Kesehatan, Dokter, Medis, Mental">
+    <meta name="author" content="Rodaza">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styleKonsultasi.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="img/logo/logo.png" type="icon">
+    <script src="scripts/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/dd20ffdac4.js" crossorigin="anonymous"></script>
+    <title>Rodaza Clinic : Konsultasikan Keluhan Anda!</title>
+
+</head>
+
+<body>
+    <!-- NAVIGATION BAR START-->
+    <header class="wrapper">
+        <div class="brand">
+            <div class="firstname">
+                <a href="#home">Rodaza</a>
+            </div>
+            <div class="lastname">
+                <a href="#home">Clinic</a>
+            </div>
+        </div>
+        <div class="brand-logo">
+            <a href="#home"><img src="img/logo/logo.png"></a>
+        </div>
+        <ul class="navigation">
+            <li><a href="indexPasien.html#home">Beranda</a></li>
+            <li><a href="indexPasien.html#about">Tentang Kami</a></li>
+            <li><a href="indexPasien.html#doctor">Dokter</a></li>
+            <li><a href="indexPasien.html#medis">Informasi Medis</a></li>
+            <li><a href="konsultasi.html">Konsultasi</a></li>
+        </ul>
+        <div class="garis"></div>
+        <div class="login">
+            <p>Selamat Datang</p>
+            <a href="login.html">Login</a>
+        </div>
+        <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <h2>DAFA GHANI</h2>
+                </div>
+                <hr>
+                <a href="#" class="sub-menu-links" id="sub1">
+                    <i class="sub-menu-icon fa-solid fa-house"></i>
+                    <p>Beranda</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-links" id="sub2">
+                    <i class="sub-menu-icon fa-regular fa-envelope"></i>
+                    <p>Bantuan</p>
+                    <span id="ssub2">></span>
+                </a>
+                <a href="#" class="sub-menu-links" id="sub3">
+                    <i class="sub-menu-icon fa-solid fa-gear"></i>
+                    <p>Pengaturan</p>
+                    <span id="ssub3">></span>
+                </a>
+                <a href="#" class="sub-menu-links" id="sub4">
+                    <i class="sub-menu-icon fa-solid fa-door-open"></i>
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- NAVIGATION BAR END -->
+
+    <!-- SECTION SEARCH BAR START -->
+    <section class="search-bar" id="search-bar">
+        <main class="content">
+            <div class="search-wrap">
+                <form>
+                    <div class="search">
+                        <i class="search-cion fa-solid fa-magnifying-glass"></i>
+                        <input type="search" class="search-input" placeholder="Cari Data Konsultasi...">
+                    </div>
+                </form>
+            </div>
+        </main>
+    </section>
+    <!-- SECTION SEARCH BAR END -->
+
+    <!-- SECTION TABEL START -->
+    <section class="table" id="table">
+        <main class="content">
+            <div class="table-wrap">
+                <table class="info-table">
+                    <h1>Data Konsultasi Anda</h1>
+                    <thead>
+                        <tr>
+                            <th>ID Pasien</th>
+                            <th>ID Ruangan</th>
+                            <th>Nama Pasien</th>
+                            <th>Nama Dokter</th>
+                            <th>Tanggal</th>
+                            <th>Jam</th>
+                            <th>Catatan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>P001</td>
+                            <td>R001</td>
+                            <td>Lolo Pani</td>
+                            <td>Dr. Firman Spakbor</td>
+                            <td>23 Mei 2024</td>
+                            <td>08:00</td>
+                            <td>Batuk</td>
+                            <td class="status">Menunggu</td>
+                            <td><a href="#" class="aksi-edit">Edit</a><a href="#" class="aksi-delete"> Batal</a></td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>P001</td>
+                            <td>R001</td>
+                            <td>Lolo Pani</td>
+                            <td>Dr. Firman Spakbor</td>
+                            <td>23 Mei 2024</td>
+                            <td>08:00</td>
+                            <td>Batuk</td>
+                            <td class="status">Menunggu</td>
+                            <td><a href="#" class="aksi-edit">Edit</a><a href="#" class="aksi-delete"> Batal</a></td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>P001</td>
+                            <td>R001</td>
+                            <td>Lolo Pani</td>
+                            <td>Dr. Firman Spakbor</td>
+                            <td>23 Mei 2024</td>
+                            <td>08:00</td>
+                            <td>Batuk</td>
+                            <td class="status">Menunggu</td>
+                            <td><a href="#" class="aksi-edit">Edit</a><a href="#" class="aksi-delete"> Batal</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="addition">
+                <p>Silahkan klik tombol di bawah jika Anda ingin membuat konsultasi baru</p>
+                <a href="formKonsultasi.html"><i class="addition-icon fa-solid fa-plus"></i></a>
+            </div>
+        </main>
+    </section>
+    <!-- SECTION TABEL END -->
+
+    <!-- FOOTER START -->
+    <footer>
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+
+        <div class="links">
+            <a href="indexPasien.html">Beranda</a>
+            <a href="indexPasien#about">Tentang Kami</a>
+            <a href="indexPasien#doctor">Dokter</a>
+            <a href="indexPasien#medis">Informasi Medis</a>
+        </div>
+
+        <div class="credit">
+            <p>CreatedBy <a href="">RoDaZa</a> | &copy; 2024. All Right Reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+</body>
+
+</html>

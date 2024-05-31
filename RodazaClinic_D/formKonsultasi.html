@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RodazaClinic">
+    <meta name="keywords" content="Klinik, Kesehatan, Dokter, Medis, Mental">
+    <meta name="author" content="Rodaza">
+    <link rel="stylesheet" href="css/formKonsultasi.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="fonts/SparkyStonesRegular-BW6ld.ttf">
+    <link rel="icon" href="img/logo/logo.png" type="icon">
+    <script src="scripts/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/dd20ffdac4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Rodaza Clinic : Konsultasikan Keluhan Anda!</title>
+
+</head>
+
+<body>
+    <!-- NAVIGATION BAR START-->
+    <header class="wrapper">
+        <div class="brand">
+            <div class="firstname">
+                <a href="indexPasien.html#home">Rodaza</a>
+            </div>
+            <div class="lastname">
+                <a href="indexPasien.html#home">Clinic</a>
+            </div>
+        </div>
+        <div class="brand-logo">
+            <a href="#home"><img src="img/logo/logo.png"></a>
+        </div>
+        <ul class="navigation">
+            <li><a href="indexPasien.html#home">Beranda</a></li>
+            <li><a href="indexPasien.html#about">Tentang Kami</a></li>
+            <li><a href="indexPasien.html#doctor">Dokter</a></li>
+            <li><a href="indexPasien.html#medis">Informasi Medis</a></li>
+        </ul>
+        <div class="garis"></div>
+        <div class="login">
+            <p>Selamat Datang</p>
+            <a href="login.html">Login</a>
+        </div>
+    </header>
+    <!-- NAVIGATION BAR END -->
+    <!-- SECTION HOME START -->
+    <section class="hero" id="home">
+        <main class="content">
+            <div class="input">
+                <h1>FORM KONSULTASI</h1>
+                <div class="kotak_input">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <select id="doctorSelect">
+                        <option value="" disabled selected>Pilih Dokter
+                            <hr>
+                        </option>
+                        <option value="dokter1" class="option-padding">Dr. Asep Injeksi
+                            <hr>
+                        </option>
+                        <option value="dokter2" class="option-padding">Dr. Dadang Turbo
+                            <hr>
+                        </option>
+                        <option value="dokter3" class="option-padding">Dr. Firman Spakbor
+                            <hr>
+                        </option>
+                        <option value="dokter4" class="option-padding">Dr. Lina Klakson
+                            <hr>
+                        </option>
+                        <option value="dokter5" class="option-padding">Dr. Sinta Knalpot
+                            <hr>
+                        </option>
+                        <option value="dokter6" class="option-padding">Dr. Ucup Remot
+                            <hr>
+                        </option>
+                        <option value="dokter7" class="option-padding">Dr. Dafa Bohlam
+                            <hr>
+                        </option>
+                        <option value="dokter8" class="option-padding">Dr. Joni Kabel
+                            <hr>
+                        </option>
+                        <option value="dokter9" class="option-padding">Dr. Riri Baskom
+                            <hr>
+                        </option>
+                        <option value="dokter10" class="option-padding">Dr. Tuti Ember</option>
+                    </select>
+                </div>
+                <div class="kotak_input">
+                    <i class="fa-solid fa-door-closed"></i>
+                    <select id="ruanganSelect">
+                        <option value="" disabled selected>Pilih Ruangan
+                            <hr>
+                        </option>
+                        <option value="ruangan1">1 - Ruang Pemeriksaan Lantai 1
+                            <hr>
+                        </option>
+                        <option value="ruangan2">2 - Ruang Pemeriksaan Lantai 1
+                            <hr>
+                        </option>
+                        <option value="ruangan3">3 - Ruang Konsultasi Lantai 1
+                            <hr>
+                        </option>
+                        <option value="ruangan4">4 - Ruang Perawatan Lantai 2
+                            <hr>
+                        </option>
+                        <option value="ruangan5">5 - Ruang Konsultasi Lantai 2</option>
+                    </select>
+                </div>
+                <div class="kotak_input">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <input id="dateInput" type="text" placeholder="Tanggal Konsultasi" onfocus="(this.type='date')"
+                        onblur="(this.type='text')" />
+                </div>
+                <div class="kotak_input">
+                    <i class="fa-solid fa-clock"></i>
+                    <input id="timeInput" type="text" placeholder="Jam Konsultasi" onfocus="(this.type='time')"
+                        onblur="(this.type='text')" />
+                </div>
+                <div class="kotak_input">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="varchar" placeholder="Catatan">
+                </div>
+                <button type="submit" name="login" class="input_btn">Buat Konsultasi</button>
+            </div>
+
+        </main>
+    </section>
+    <!-- SECTION HOME END -->
+
+    <!-- FOOTER START -->
+    <footer>
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+
+        <div class="links">
+            <a href="indexPasien.html#home">Beranda</a>
+            <a href="indexPasien.html#about">Tentang Kami</a>
+            <a href="indexPasien.html#doctor">Dokter</a>
+            <a href="indexPasien.html#medis">Informasi Medis</a>
+        </div>
+
+        <div class="credit">
+            <p>CreatedBy <a href="">RoDaZa</a> | &copy; 2024. All Right Reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+</body>
+
+</html>
