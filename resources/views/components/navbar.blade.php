@@ -27,7 +27,7 @@
           </li>
           @auth
           <li class="nav-item">
-              <a class="nav-link {{($title === "Konsultasi") ? "active" : ''}}" aria-current="page" href="dashboard/konsultasi">Konsultasi</a>
+              <a class="nav-link {{($title === "Konsultasi") ? "active" : ''}}" aria-current="page" href="/konsultasi">Konsultasi</a>
           </li>
           @endauth
         </ul>
@@ -39,7 +39,7 @@
                   Welcome Back, {{auth()->user()->pasien->nama}}
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/dashboard/konsultasi">Konsultasi Saya</a></li>
+                  <li><a class="dropdown-item" href="/konsultasi">Konsultasi Saya</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li>
                     <form action="/logout" method="POST">

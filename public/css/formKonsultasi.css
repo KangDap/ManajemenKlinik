@@ -57,6 +57,7 @@ html {
     scroll-behavior: smooth;
 }
 
+/* NAVIGATION BAR START */
 .wrapper {
     position: fixed;
     display: flex;
@@ -172,6 +173,31 @@ html {
     transition: all .3s ease-in-out;
 }
 
+.login h3 {
+    color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(20px);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.575);
+    transition: all .3s;
+    background-color: rgba(2, 0, 94, 0.719);
+    width: 60%;
+    border-radius: 50px;
+    text-shadow: 1px 1px 1px rgba(0, 195, 255, 0.575);
+    transition: all .3s;
+}
+
+.login h3:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, rgb(125, 249, 255), rgb(159, 250, 255),rgb(125, 249, 255));
+    color: rgba(0, 0, 0, 0.653);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.575);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1) translateX(20px);
+}
+
 .garis {
     height: 130px;
     width: 10px;
@@ -179,18 +205,129 @@ html {
     margin-right: -45px;
 }
 
-.kotak_input:hover i {
-    color: black;
-    transform: scale(1.1);
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 2.5%;
+    width: 250px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .5s;
 }
 
-.kotak_input i {
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    border-radius: 10px;
+    background: linear-gradient(to bottom, rgb(194, 241, 255), rgb(214, 245, 255), rgb(194, 241, 255));
+    padding: 20px;
+    margin: 10px;
+}
+
+.sub-menu hr {
+    background-color: rgba(0, 0, 0, .5);
+    height: 1px;
+    width: 100%;
+    margin: 5px 0 10px;
+}
+
+.sub-menu-links {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 7px 0 5px;
+}
+
+.sub-menu-icon {
+    background: rgba(0, 195, 255, 0.575);
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 16px;
     transition: all .3s;
 }
 
-/* SECTION LOGIN START */
+.sub-menu-icon:hover {
+    background: rgb(27, 130, 255);
+    color: rgb(255, 254, 238);
+}
+
+.sub-menu-links p {
+    width: 100%;
+    font-size: 16px;
+    margin-left: 4px;
+}
+
+.sub-menu-links span {
+    font-size: 19px;
+    transition: transform .5s;
+    margin-right: 13px;
+}
+
+.sub-menu-links:hover span {
+    font-size: 19px;
+    transform: translateX(5px);
+}
+
+.sub-menu-links:hover span#ssub2,
+.sub-menu-links:hover span#ssub3 {
+    font-size: 19px;
+    transform: translateX(5px);
+}
+
+.sub-menu-links:hover p {
+    font-weight: 550;
+}
+
+.sub-menu-links#sub2,
+.sub-menu-links#sub3 {
+    transform: translateX(2px);
+}
+
+.sub-menu-links span#ssub2,
+.sub-menu-links span#ssub3 {
+    transform: translateX(-2px);
+}
+
+.sub-menu-links#sub4 {
+    width: 100%;
+    font-size: 16px;
+    margin-left: 4px;
+    background-color: transparent;
+}
+
+.sub-menu-links#sub4 span {
+    margin-right: 20px;
+}
+
+.sub-menu-links#sub4 p {
+    transform: translateX(-22px);
+}
+
+.sub-menu-links#sub4 .sub-menu-icon {
+    transform: translateX(5px);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* NAVIGATION BAR END */
+
+/* SECTION FORM START */
 .hero {
-    min-height: 75vh;
+    min-height: 100vh;
     align-items: center;
     padding: 8rem 7% 1.4rem;
     position: relative;
@@ -202,7 +339,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 125px;
+    margin-top: 100px;
 
 }
 
@@ -252,13 +389,26 @@ html {
     color: white;
 }
 
+.kotak_input textarea {
+    width: 100%;
+    padding: 10px 10px 10px 30px; /* Adjust padding to make space for the icon */
+    border: 1px solid #ccc;
+    background: linear-gradient(to top, rgb(0, 162, 255), rgb(80, 214, 255), rgb(0, 162, 255));
+    border-radius: 4px;
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px; /* Minimum height */
+    font-size: 16px; /* Font size */
+    line-height: 1.5; /* Line height for better readability */
+    box-sizing: border-box; /* Ensure padding is included in the width/height */
+}
+
 .input_btn .kotak_input input:hover {
     background: rgba(10, 10, 10, .5);
 }
 
 .input_btn {
     margin-left: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     background: none;
     border: 1px solid white;
     width: 92.5%;
@@ -269,6 +419,7 @@ html {
     cursor: pointer;
     transition: all .2s;
     border-radius: 10px;
+    margin-top: 10px;
 }
 
 .input_btn:hover {
@@ -304,7 +455,46 @@ html {
     margin-right: -45px;
 }
 
-/* SECTION LOGIN END */
+input[type="text"]::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+.kotak_input:hover i {
+    color: black;
+    transform: scale(1.2);
+}
+
+.kotak_input i {
+    transition: all .3s;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 4px;
+    background-color: transparent;
+    transform: translateX(7px);
+}
+
+select option {
+    color: black;
+    background-color: rgba(68, 236, 255, 0.7);
+    padding: 50px;
+}
+
+select#doctorSelect {
+    color: white;
+    transform: translateX(9px);
+}
+
+select#ruanganSelect {
+    color: white;
+    width: 229.88px;
+    transform: translateX(4px);
+}
+
+/* SECTION FORM END */
 
 /* FOOTER START */
 footer {
@@ -389,7 +579,7 @@ footer .links a {
 
 .error-message {
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
     background-color: #f8d7da;
@@ -401,4 +591,10 @@ footer .links a {
     text-align: center;
     margin-bottom: 100px;
     border-radius: 30px;
+}
+
+.text-area{
+    width: 175px;
+    height: 200px;
+
 }

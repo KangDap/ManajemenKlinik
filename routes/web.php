@@ -9,41 +9,16 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "Home"
-    ]);
-});
-
-Route::get('/about', function () {
-    return view('about', [
-        'title'=> 'About',
-        "clinicname" => "RoDaZa Clinic",
-        "desc"=> "Layanan konsultasi kesehatan terpercaya",
-        "address"=> "Jl. Raya Bandung Sumedang KM.21, Hegarmanah, Kec. Jatinangor, Kabupaten Sumedang, Jawa Barat 45365",
-        "email"=> "rodazaclinic@gmail.com"
-    ]);
-});
-
-Route::get('/dokter', function () {
-    return view('dokter', [
-        'title'=> 'Dokter',
+        "title" => "Home",
         'list_dokter'=> Dokter::all()
     ]);
 });
 
-// Page masing-masing dokter
+// Route Konsultasi
 
-Route::get('/dokter/{info_dokter:slug}', function (Dokter $info_dokter) {
-    // $info_dokter = Dokter::find( $id_dokter );
+Route::resource("/konsultasi", DashboardKonsultasiController::class)->middleware('auth');
 
-    return view('biodokter', [
-        'title'=> $info_dokter["name"],
-        "infodokter" => $info_dokter
-    ]);
-});
-
-Route::get("/konsultasi", [DashboardKonsultasiController::class, "index"]);
-
-Route::resource("/dashboard/konsultasi", DashboardKonsultasiController::class)->middleware('auth');
+Route::post('/konsultasi/{konsultasi}/change-status', [DashboardKonsultasiController::class, 'changeStatus'])->name('konsultasi.changeStatus')->middleware('auth');
 
 // Route Login
 

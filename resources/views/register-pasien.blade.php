@@ -11,7 +11,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="fonts/SparkyStonesRegular-BW6ld.ttf">
-    <link rel="icon" href={{asset("assets/img/logo.png")}} type="icon">
+    <link rel="icon" href={{asset("assets/img/logo/logo.png")}} type="icon">
     <script src="scripts/script.js" defer></script>
     <script src="https://kit.fontawesome.com/dd20ffdac4.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="brand-logo">
-            <a href="/"><img src={{asset("assets/img/logo.png")}}></a>
+            <a href="/"><img src={{asset("assets/img/logo/logo.png")}}></a>
         </div>
         <ul class="navigation">
             <li><a href="/">Beranda</a></li>
@@ -60,7 +60,7 @@
                 @csrf
                 <div class="kotak_input">
                     <i class="fa-solid fa-person"></i>
-                    <input type="varchar" name="nama" placeholder="Nama Lengkap">
+                    <input type="varchar" name="nama" placeholder="Nama Lengkap" autofocus value="{{old('nama')}}">
                 </div>
                 @error('nama')
                     <div class="invalid-feedback">
@@ -69,7 +69,7 @@
                 @enderror
                 <div class="kotak_input">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <input type="date" name="tanggal_lahir" placeholder="Tanggal Lahir">
+                    <input type="date" name="tanggal_lahir" placeholder="Tanggal Lahir" value="{{old('tanggal_lahir')}}">
                 </div>
                 @error('tanggal_lahir')
                     <div class="invalid-feedback">
@@ -78,7 +78,7 @@
                 @enderror
                 <div class="kotak_input">
                     <i class="fa-solid fa-road"></i>
-                    <input type="varchar" name="alamat" placeholder="Alamat">
+                    <input type="varchar" name="alamat" placeholder="Alamat" value="{{old('alamat')}}">
                 </div>
                 @error('alamat')
                     <div class="invalid-feedback">
@@ -87,7 +87,7 @@
                 @enderror
                 <div class="kotak_input">
                     <i class="fa-solid fa-phone"></i>
-                    <input type="varchar" name="no_telepon" placeholder="Nomor Telepon">
+                    <input type="varchar" name="no_telepon" placeholder="Nomor Telepon" value="{{old('no_telepon')}}">
                 </div>
                 @error('no_telepon')
                     <div class="invalid-feedback">
@@ -116,10 +116,10 @@
         </div>
 
         <div class="links">
-            <a href="index.html#home">Beranda</a>
-            <a href="index.html#about">Tentang Kami</a>
-            <a href="index.html#doctor">Dokter</a>
-            <a href="index.html#medis">Informasi Medis</a>
+            <a href="/">Beranda</a>
+            <a href="/#about">Tentang Kami</a>
+            <a href="/#doctor">Dokter</a>
+            <a href="/#medis">Informasi Medis</a>
         </div>
 
         <div class="credit">

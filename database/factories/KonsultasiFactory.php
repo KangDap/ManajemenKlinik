@@ -19,8 +19,8 @@ class KonsultasiFactory extends Factory
     protected $model = Konsultasi::class;
     public function definition(): array
     {
-        $id_pasien = DB::table('pasien')->pluck('id_pasien')->random();
-        $id_dokter = DB::table('dokter')->pluck('id_dokter')->random();
+        $id_pasien  = DB::table('pasien')->pluck('id_pasien')->random();
+        $id_dokter  = DB::table('dokter')->pluck('id_dokter')->random();
         $id_ruangan = DB::table('ruangan')->pluck('id')->random();
 
         return [

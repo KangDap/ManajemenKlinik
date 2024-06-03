@@ -67,7 +67,7 @@ html {
     width: 50px;
     height: 50px;
     position: relative;
-    transform: translateX(-175px);
+    transform: translateX(-30px);
 }
 
 .brand-logo a img {
@@ -78,7 +78,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(-50%);
+    transform: translateX(-5%);
 }
 
 .navigation>li {
@@ -155,12 +155,37 @@ html {
     transition: all .3s ease-in-out;
 }
 
+.login h3 {
+    color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(20px);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.575);
+    transition: all .3s;
+    background-color: rgba(2, 0, 94, 0.719);
+    width: 60%;
+    border-radius: 50px;
+    text-shadow: 1px 1px 1px rgba(0, 195, 255, 0.575);
+    transition: all .3s;
+}
+
+.login h3:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, rgb(125, 249, 255), rgb(159, 250, 255),rgb(125, 249, 255));
+    color: rgba(0, 0, 0, 0.653);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.575);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1) translateX(20px);
+}
+
 .garis {
     height: 130px;
     width: 10px;
     background-color: rgb(2, 0, 94);
-    position: absolute;
-    transform: translateX(1180px);
+    margin-left: 275px;
+    transform: translateX(30px);
 }
 
 .search {
@@ -277,13 +302,36 @@ html {
     transform: translateX(-2px);
 }
 
+.sub-menu-links#sub4 {
+    width: 100%;
+    font-size: 16px;
+    margin-left: 4px;
+    background-color: transparent;
+}
+
+.sub-menu-links#sub4 span {
+    margin-right: 20px;
+}
+
+.sub-menu-links#sub4 p {
+    transform: translateX(-22px);
+}
+
+.sub-menu-links#sub4 .sub-menu-icon {
+    transform: translateX(5px);
+}
+
 .user-info {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .user-info h2 {
     font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
 }
 
 /* SECTION HOME START */
@@ -348,55 +396,13 @@ html {
     box-shadow: 0 0 0 5px rgb(255, 255, 255), 5px 5px 100px 0 rgba(0, 0, 0, 0.5);
 }
 
-.custom-alert {
-    display: none;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    backdrop-filter: blur(5px);
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-    box-shadow: 2px 2px 2px 5px rgba(0, 0, 0, .3);
-}
-
-.custom-alert-content {
-    background: linear-gradient(to right, rgb(163, 255, 255), rgb(207, 255, 255), rgb(163, 255, 255));
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.custom-alert .custom-alert-content p {
-    margin: 0 0 20px;
-    color: rgba(0, 0, 0, .8);
-    font-size: 24px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.449);
-}
-
-.custom-alert-content button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all .2s;
-}
-
-.custom-alert-content button:hover {
-    background-color: #0056b3;
-}
-
 /* SECTION HOME END */
 
 /* SECTION ABOUT START */
 .about {
     min-height: 100vh;
     align-items: center;
-    background-image: url("../assets/img//dashboard/about-clinic.jpg");
+    background-image: url("../assets/img/dashboard/about-clinic.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -1347,10 +1353,6 @@ footer .links a {
         align-items: center;
     }
 
-    .about .content {
-        display: grid;
-    }
-
     footer {
         font-size: 7rem;
     }
@@ -1440,14 +1442,5 @@ footer .links a {
         transform: translateX(-50%);
         width: 85px;
         height: 85px;
-    }
-
-    .about {
-        height: 1000px;
-    }
-
-    .about .box_2 {
-        transform: translateY(100%);
-        transform: translateX(-68%);
     }
 }

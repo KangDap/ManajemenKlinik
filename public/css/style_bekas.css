@@ -44,6 +44,31 @@ html {
     z-index: 49;
 }
 
+.login h3 {
+    color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(20px);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.575);
+    transition: all .3s;
+    background-color: rgba(2, 0, 94, 0.719);
+    width: 60%;
+    border-radius: 50px;
+    text-shadow: 1px 1px 1px rgba(0, 195, 255, 0.575);
+    transition: all .3s;
+}
+
+.login h3:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, rgb(125, 249, 255), rgb(159, 250, 255),rgb(125, 249, 255));
+    color: rgba(0, 0, 0, 0.653);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.575);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1) translateX(20px);
+}
+
 .brand {
     display: flex;
     flex-direction: column;
@@ -67,18 +92,14 @@ html {
     width: 50px;
     height: 50px;
     position: relative;
-    transform: translateX(-175px);
-}
-
-.brand-logo a img {
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.693))
+    transform: translateX(-30px);
 }
 
 .navigation {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateX(-50%);
+    transform: translateX(-5%);
 }
 
 .navigation>li {
@@ -93,13 +114,6 @@ html {
     color: rgb(255, 255, 255);
     font-size: 20px;
     text-decoration: none;
-}
-
-.navigation>li>a.active {
-    color: rgba(0, 255, 251);
-    position: relative;
-    text-shadow: 1px 1px 3px rgb(0, 0, 0);
-    transition: all .1s;
 }
 
 .brand .lastname,
@@ -159,8 +173,7 @@ html {
     height: 130px;
     width: 10px;
     background-color: rgb(2, 0, 94);
-    position: absolute;
-    transform: translateX(1180px);
+    margin-right: -45px;
 }
 
 .search {
@@ -207,7 +220,7 @@ html {
 
 .sub-menu {
     border-radius: 10px;
-    background: linear-gradient(to bottom, rgb(194, 241, 255), rgb(214, 245, 255), rgb(194, 241, 255));
+    background: linear-gradient(to bottom, rgb(0, 195, 255), rgb(72, 212, 255), rgb(0, 195, 255));
     padding: 20px;
     margin: 10px;
 }
@@ -246,6 +259,25 @@ html {
     margin-left: 4px;
 }
 
+.sub-menu-links#sub4 {
+    width: 100%;
+    font-size: 16px;
+    margin-left: 4px;
+    background-color: transparent;
+}
+
+.sub-menu-links#sub4 span {
+    margin-right: 20px;
+}
+
+.sub-menu-links#sub4 p {
+    transform: translateX(-22px);
+}
+
+.sub-menu-links#sub4 .sub-menu-icon {
+    transform: translateX(5px);
+}
+
 .sub-menu-links span {
     font-size: 19px;
     transition: transform .5s;
@@ -280,10 +312,14 @@ html {
 .user-info {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .user-info h2 {
     font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
 }
 
 /* SECTION HOME START */
@@ -348,55 +384,13 @@ html {
     box-shadow: 0 0 0 5px rgb(255, 255, 255), 5px 5px 100px 0 rgba(0, 0, 0, 0.5);
 }
 
-.custom-alert {
-    display: none;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    backdrop-filter: blur(5px);
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-    box-shadow: 2px 2px 2px 5px rgba(0, 0, 0, .3);
-}
-
-.custom-alert-content {
-    background: linear-gradient(to right, rgb(163, 255, 255), rgb(207, 255, 255), rgb(163, 255, 255));
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.custom-alert .custom-alert-content p {
-    margin: 0 0 20px;
-    color: rgba(0, 0, 0, .8);
-    font-size: 24px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.449);
-}
-
-.custom-alert-content button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all .2s;
-}
-
-.custom-alert-content button:hover {
-    background-color: #0056b3;
-}
-
 /* SECTION HOME END */
 
 /* SECTION ABOUT START */
 .about {
     min-height: 100vh;
     align-items: center;
-    background-image: url("../assets/img//dashboard/about-clinic.jpg");
+    background-image: url("../assets/img/dashboard/about-clinic.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -749,16 +743,6 @@ html {
     align-items: center;
     justify-content: center;
     box-shadow: 2px 2px 30px 7px rgba(0, 0, 0, 0.481);
-}
-
-.garisBiru img {
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.66))
-}
-
-.garisBiru img:hover {
-    filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.66));
-    transition: all .3s;
-    transform: scale(1.2);
 }
 
 @keyframes glowing {
@@ -1347,10 +1331,6 @@ footer .links a {
         align-items: center;
     }
 
-    .about .content {
-        display: grid;
-    }
-
     footer {
         font-size: 7rem;
     }
@@ -1375,14 +1355,9 @@ footer .links a {
     }
 
     .brand {
-        position: absolute;
         display: flex;
         flex-direction: row;
-        font-size: 11rem;
-        margin-left: 20x;
-        margin-bottom: 60px;
-        transform: translateY(30px);
-        transform: translateX(105px);
+        font-size: 19rem;
     }
 
     .firstname a {
@@ -1399,22 +1374,12 @@ footer .links a {
     }
 
     .brand-logo a {
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        transform: translateX(340px);
-    }
-
-    .search {
-        position: absolute;
-        margin-top: 10px;
-        transform: translateX(-365px);
-        height: 35px;
-        width: 290px;
-    }
-
-    .login {
-        visibility: hidden;
+        display: flex;
+        width: 75px;
+        height: 75px;
+        position: relative;
+        transform: translateX(5px);
+        transform: translateY(15px);
     }
 
     .medis .content h2 {
@@ -1441,13 +1406,20 @@ footer .links a {
         width: 85px;
         height: 85px;
     }
+}
 
-    .about {
-        height: 1000px;
-    }
-
-    .about .box_2 {
-        transform: translateY(100%);
-        transform: translateX(-68%);
-    }
+.success-message {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d9f8d7;
+    color: #22721c;
+    padding: 15px;
+    border: 1px solid #c6f5d0;
+    border-radius: 5px;
+    width: 25%;
+    text-align: center;
+    margin-bottom: 100px;
+    border-radius: 30px;
 }

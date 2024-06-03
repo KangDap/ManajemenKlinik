@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('id_ruangan')->references('id')->on('ruangan');
             $table->date('tanggal_konsul');
             $table->time('jam_konsul');
+            $table->enum('status', ['Diterima', 'Menunggu', 'Ditolak'])->default('Menunggu');
             $table->text('catatan');
             $table->timestamps();
         });

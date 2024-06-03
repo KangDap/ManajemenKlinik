@@ -50,4 +50,13 @@ class User extends Authenticatable
     public function pasien(){
         return $this->hasOne(Pasien::class, 'email', 'email');
     }
+
+    public function dokter(){
+        return $this->hasOne(Dokter::class,'email', 'email');
+    }
+
+    public function userHasRole($role)
+    {
+        return $this->role === $role;
+    }
 }

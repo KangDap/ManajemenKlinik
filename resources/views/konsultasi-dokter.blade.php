@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/styleKonsultasi.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleKonsultasiDokter.css') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href={{ asset('assets/img//logo/logo.png') }} type="icon">
@@ -37,10 +37,10 @@
             <a href="/dashboard"><img src="assets/img/logo/logo.png"></a>
         </div>
         <ul class="navigation">
-            <li><a href="/dashboard">Beranda</a></li>
-            <li><a href="/dashboard#about">Tentang Kami</a></li>
-            <li><a href="/dashboard#doctor">Dokter</a></li>
-            <li><a href="/dashboard#medis">Informasi Medis</a></li>
+            <li><a href="/dashboard#home" class="beranda-active">Beranda</a></li>
+            <li><a href="/dashboard#about" class="about-active">Tentang Kami</a></li>
+            <li><a href="/dashboard#doctor" class="doctor-active">Dokter</a></li>
+            <li><a href="/dashboard#medis" class="medis-active">Informasi Medis</a></li>
             <li><a href="/konsultasi" id="konsul">Konsultasi</a></li>
         </ul>
         <div class="garis"></div>
@@ -115,7 +115,7 @@
         <main class="content">
             <div class="table-wrap">
                 <table class="info-table">
-                    <h1>Data Konsultasi Anda</h1>
+                    <h1>Data Konsultasi Pasien</h1>
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -141,21 +141,21 @@
                             <td>{!! nl2br(e($konsultasi->catatan)) !!}</td>
                             <td class="status {{ $konsultasi->status == 'Diterima' ? 'status-diterima' : ($konsultasi->status == 'Ditolak' ? 'status-ditolak' : 'status-menunggu') }}">{{$konsultasi->status}}</td>
                             <td>
-                                <a href="/konsultasi/{{$konsultasi->id}}" class="aksi-edit">Edit</a>
-                                <form action="/konsultasi/{{$konsultasi->id}}" method="POST">
-                                    @method('delete')
+                                <form action="{{ route('konsultasi.changeStatus', $konsultasi->id) }}" method="POST">
                                     @csrf
-                                    <button class="aksi-delete" onclick="return confirm('Apakah Anda ingin membatalkan konsultasi ini?')">Batal</button>
+                                    <input type="hidden" name="status" value="Diterima">
+                                    <button type="submit" class="aksi-terima">Terima</button>
                                 </form>
-                                {{-- <a href="#" class="aksi-delete"> Batal</a></td> --}}
+                                <form action="{{ route('konsultasi.changeStatus', $konsultasi->id) }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="status" value="Ditolak">
+                                    <button type="submit" class="aksi-tolak">Tolak</button>
+                                </form>
+                                <a href="/konsultasi/{{$konsultasi->id}}" class="aksi-edit">Edit</a>
                         </tr>
                     </tbody>
                     @endforeach
                 </table>
-            </div>
-            <div class="addition">
-                <p>Silahkan klik tombol di bawah jika Anda ingin membuat konsultasi baru</p>
-                <a href="konsultasi/create"><i class="addition-icon fa-solid fa-plus"></i></a>
             </div>
         </main>
     </section>

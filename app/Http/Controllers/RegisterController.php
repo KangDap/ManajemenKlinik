@@ -39,7 +39,7 @@ class RegisterController extends Controller
             'nama' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|max:255',
-            'no_telepon' => 'required|string|max:12'
+            'no_telepon' => 'required|digits:12'
         ]);
 
         $slug = Str::slug($validatedData['nama']);

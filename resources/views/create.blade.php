@@ -12,13 +12,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/styleKonsultasi.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/formKonsultasi.css') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href={{ asset('assets/img//logo/logo.png') }} type="icon">
     <script src="{{ asset('js/script.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/dd20ffdac4.js" crossorigin="anonymous"></script>
-    <title>Rodaza Clinic : Konsultasikan Keluhan Anda!</title>
+    <title>Rodaza Clinic | {{$title}}</title>
 
 </head>
 
@@ -34,14 +34,13 @@
             </div>
         </div>
         <div class="brand-logo">
-            <a href="/dashboard"><img src="assets/img/logo/logo.png"></a>
+            <a href="/dashboard"><img src={{ asset('assets/img//logo/logo.png') }}></a>
         </div>
         <ul class="navigation">
             <li><a href="/dashboard">Beranda</a></li>
             <li><a href="/dashboard#about">Tentang Kami</a></li>
             <li><a href="/dashboard#doctor">Dokter</a></li>
             <li><a href="/dashboard#medis">Informasi Medis</a></li>
-            <li><a href="/konsultasi" id="konsul">Konsultasi</a></li>
         </ul>
         <div class="garis"></div>
         @auth
@@ -55,7 +54,7 @@
                     <h2>{{$nama}}</h2>
                 </div>
                 <hr>
-                <a href="/dashboard" class="sub-menu-links" id="sub1">
+                <a href="#" class="sub-menu-links" id="sub1">
                     <i class="sub-menu-icon fa-solid fa-house"></i>
                     <p>Beranda</p>
                     <span>></span>
@@ -89,77 +88,84 @@
     </header>
     <!-- NAVIGATION BAR END -->
 
-    <!-- SECTION SEARCH BAR START -->
-    <section class="search-bar" id="search-bar">
-        <main class="content">
-            <div class="search-wrap">
-                <form action="/konsultasi">
-                    <div class="search">
-                        <i class="search-icon fa-solid fa-magnifying-glass"></i>
-                        <input type="search" class="search-input" placeholder="Cari Data Konsultasi..." name="search" value="{{request('search')}}">
-                    </div>
-                </form>
-            </div>
-        </main>
-    </section>
-    <!-- SECTION SEARCH BAR END -->
-
-    @if (session()->has('success'))
-        <div class="success-message">
-            {{ session('success') }}
+    @if (session()->has('error'))
+        <div class="error-message">
+            {{ session('error') }}
         </div>
     @endif
 
-    <!-- SECTION TABEL START -->
-    <section class="table" id="table">
+    <!-- SECTION HOME START -->
+    <section class="hero" id="home">
         <main class="content">
-            <div class="table-wrap">
-                <table class="info-table">
-                    <h1>Data Konsultasi Anda</h1>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>No. Ruangan</th>
-                            <th>Nama Pasien</th>
-                            <th>Nama Dokter</th>
-                            <th>Tanggal</th>
-                            <th>Jam</th>
-                            <th>Catatan</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    @foreach ($list_konsultasi as $konsultasi)
-                    <tbody>
-                        <tr>
-                            <td>{{$konsultasi->id}}</td>
-                            <td>{{$konsultasi->ruangan->id}}</td>
-                            <td>{{$konsultasi->pasien->nama}}</td>
-                            <td>{{$konsultasi->dokter->nama}}</td>
-                            <td>{{$konsultasi->formattedDate()}}</td>
-                            <td>{{$konsultasi->formattedTime()}}</td>
-                            <td>{!! nl2br(e($konsultasi->catatan)) !!}</td>
-                            <td class="status {{ $konsultasi->status == 'Diterima' ? 'status-diterima' : ($konsultasi->status == 'Ditolak' ? 'status-ditolak' : 'status-menunggu') }}">{{$konsultasi->status}}</td>
-                            <td>
-                                <a href="/konsultasi/{{$konsultasi->id}}" class="aksi-edit">Edit</a>
-                                <form action="/konsultasi/{{$konsultasi->id}}" method="POST">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="aksi-delete" onclick="return confirm('Apakah Anda ingin membatalkan konsultasi ini?')">Batal</button>
-                                </form>
-                                {{-- <a href="#" class="aksi-delete"> Batal</a></td> --}}
-                        </tr>
-                    </tbody>
-                    @endforeach
-                </table>
+            <div class="input">
+                <h1>FORM KONSULTASI</h1>
+                <form action="/konsultasi" method="POST">
+                @csrf
+                <div class="kotak_input">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <select id="doctorSelect" name="dokter">
+                        <option value="" disabled selected>Pilih Dokter
+                            <hr>
+                        </option>
+                        @foreach ($list_dokter as  $dokter)
+                            @if (old('dokter') == $dokter->id_dokter)
+                                <option value="{{$dokter->id_dokter}}" selected>Dr. {{$dokter->nama}}</option>
+                            @else
+                                <option value="{{$dokter->id_dokter}}">Dr. {{$dokter->nama}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+                <div class="kotak_input">
+                    <i class="fa-solid fa-door-closed"></i>
+                    <select id="ruanganSelect" name="ruangan">
+                        <option value="" disabled selected>Pilih Ruangan
+                            <hr>
+                        </option>
+                        @foreach ($list_ruangan as $ruangan)
+                            @if (old('ruangan') == $ruangan->id)
+                                <option value="{{$ruangan->id}}" selected>{{$ruangan->id}} - {{$ruangan->jenis_ruangan}} Lantai {{$ruangan->lantai}}</option>
+                            @else
+                                <option value="{{$ruangan->id}}">{{$ruangan->id}} - {{$ruangan->jenis_ruangan}} Lantai {{$ruangan->lantai}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+                <div class="kotak_input">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <input id="dateInput" type="text" placeholder="Tanggal Konsultasi" onfocus="(this.type='date')"
+                        onblur="(this.type='text')" name="tanggal_konsul"/>
+                </div>
+                @error('tanggal_konsul')
+                    <div class="text-danger">
+                        {{'*' . "Mohon isi Tanggal Konsultasi"}}
+                    </div>
+                @enderror
+                <div class="kotak_input">
+                    <i class="fa-solid fa-clock"></i>
+                    <input id="timeInput" type="text" placeholder="Jam Konsultasi" onfocus="(this.type='time')"
+                        onblur="(this.type='text')" name="jam_konsul"/>
+                </div>
+                @error('jam_konsul')
+                    <div class="text-danger">
+                        {{'*' . "Mohon isi Jam Konsultasi"}}
+                    </div>
+                @enderror
+                <div class="kotak_input">
+                    <i class="fa-solid fa-envelope"></i>
+                    <textarea class="text-area" placeholder="Masukkan Keluhan Anda" name="catatan"></textarea>
+                </div>
+                @error('catatan')
+                    <div class="text-danger">
+                        {{'*' . "Mohon isi Catatan"}}
+                    </div>
+                @enderror
+                <button type="submit" name="login" class="input_btn">Buat Konsultasi</button>
             </div>
-            <div class="addition">
-                <p>Silahkan klik tombol di bawah jika Anda ingin membuat konsultasi baru</p>
-                <a href="konsultasi/create"><i class="addition-icon fa-solid fa-plus"></i></a>
-            </div>
+            </form>
         </main>
     </section>
-    <!-- SECTION TABEL END -->
+    <!-- SECTION HOME END -->
 
     <!-- FOOTER START -->
     <footer>
@@ -174,9 +180,9 @@
 
         <div class="links">
             <a href="/dashboard">Beranda</a>
-            <a href="/dashboard#about">Tentang Kami</a>
-            <a href="/dashboard#doctor">Dokter</a>
-            <a href="/dashboard#medis">Informasi Medis</a>
+            <a href="/#about">Tentang Kami</a>
+            <a href="/#doctor">Dokter</a>
+            <a href="/#medis">Informasi Medis</a>
         </div>
 
         <div class="credit">
