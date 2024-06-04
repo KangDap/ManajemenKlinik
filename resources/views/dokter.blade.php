@@ -38,6 +38,7 @@
         </div>
         <div class="brand-logo">
             <a href="/dashboard"><img src="assets/img/logo/logo.png"></a>
+            <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>
         </div>
         <ul class="navigation">
             <li><a href="#home">Beranda</a></li>
@@ -46,16 +47,27 @@
             <li><a href="#medis">Informasi Medis</a></li>
             <li><a href="/konsultasi">Konsultasi</a></li>
         </ul>
+        <ul class="navigation-mobile">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#doctor">Dokter</a></li>
+            <li><a href="#medis">Informasi Medis</a></li>
+            @auth
+            <li><a href="#" style="color: rgb(76, 142, 255)">{{"Dr. " . $nama}}</a></li>
+            @else
+            <li><a href="/login" class="medis-active">Login</a></li>
+            @endauth
+        </ul>
         <div class="garis"></div>
         @auth
         <div class="login">
             <p>Selamat Datang</p>
-            <h3 onclick="toggleMenu()">{{explode(' ', $nama)[0]}}</h3>
+            <h3 onclick="toggleMenu()">{{"Dr. " . explode(' ', $nama)[0]}}</h3>
         </div>
         <div class="sub-menu-wrap" id="subMenu">
             <div class="sub-menu">
                 <div class="user-info">
-                    <h2>{{$nama}}</h2>
+                    <h2>{{"Dr. " . $nama}}</h2>
                 </div>
                 <hr>
                 <a href="/dashboard" class="sub-menu-links" id="sub1">
@@ -96,7 +108,7 @@
         <main class="content">
             <h1 class="animate__animated animate__backInDown">Rodaza<span class="animate__animated animate__backInDown">C</span>linic</h1>
             <p>Konsultasikan keluhan Anda kepada dokter-dokter terbaik kami!</p>
-            <a href="/konsultasi" class="cta">Konsultasi Sekarang!</a>
+            <a href="/konsultasi" class="cta">Cek Data Konsultasi</a>
             <img src="assets/img/dashboard/doctor_1.jpg" class="doctor_main">
         </main>
     </section>

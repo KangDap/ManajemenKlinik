@@ -58,6 +58,17 @@ html {
 }
 
 /* NAVIGATION BAR START */
+.navigation-mobile {
+    display: none;
+}
+.brand-logo a#hamburger {
+    display: none;
+}
+
+#hamburger {
+    position: absolute;
+}
+
 .wrapper {
     position: fixed;
     display: flex;
@@ -381,12 +392,184 @@ footer .links a {
 }
 
 /* Mobile */
-@media (max-width: 450px) {
+@media (max-width: 500px) {
 
     *,
     html,
     body {
         font-size: 55%;
+    }
+
+    .brand-logo a#hamburger {
+        display: flex;
+        margin-left: 15px;
+        transform: translateX(10px);
+        transform: translateY(12px);
+        color: white;
+        transition: all .3s;
+    }
+
+    .brand-logo a#hamburger:hover {
+        color: rgb(0, 195, 255)
+    }
+
+    #hamburger {
+        visibility: visible;
+        position: absolute;
+        font-size: 60px;
+    }
+
+    .navigation-mobile {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        background: linear-gradient(to bottom, rgb(124, 225, 255), rgb(94, 217, 255), rgb(124, 225, 255));
+        width: 27rem;
+        height: 100vh;
+        display: inline-block;
+        transition: all .5s;
+        box-shadow: inset 0 -2px 0 5px rgb(255, 255, 255)
+    }
+
+    .navigation-mobile>li>a {
+        font-size: 2.3rem;
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        color: white;
+        font-weight: 550;
+        transition: all .3s;
+    }
+
+    .navigation-mobile>li>a:hover {
+        color: rgb(0, 89, 156);
+    }
+
+    .navigation-mobile.active {
+        left: 0
+    }
+
+    .navigation {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .hero .content .cta {
+        align-items: center;
+        margin: 10px 10px 10px 10px;
+        font-size: 3.6rem;
+        justify-content: center;
+        margin-top: 100px;
+
+    }
+
+    .hero .content {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about .content {
+        display: grid;
+    }
+
+    footer {
+        font-size: 7rem;
+    }
+
+    footer .credit {
+        font-size: 4rem;
+    }
+
+    footer .credit a {
+        font-size: 2rem;
+    }
+
+    footer .links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer .socials {
+        width: 100%;
+        height: 100%;
+        font-size: 60px;
+    }
+
+    .brand {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        font-size: 11rem;
+        margin-left: 20x;
+        margin-bottom: 60px;
+        transform: translateY(30px);
+        transform: translateX(105px);
+    }
+
+    .firstname a {
+        color: rgba(0, 0, 0, 0.55);
+        font-weight: 550;
+        animation: glowing 2.5s infinite alternate;
+    }
+
+    .lastname a {
+        color: rgba(0, 0, 0, 0.55);
+        font-weight: 550;
+        animation: glowing 2.5s infinite alternate;
+        margin-right: 10px;
+    }
+
+    .brand-logo a {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        transform: translateX(320px);
+    }
+
+    .search {
+        position: absolute;
+        margin-top: 10px;
+        transform: translateX(-365px);
+        height: 35px;
+        width: 290px;
+    }
+
+    .login {
+        visibility: hidden;
+    }
+
+    .medis .content h2 {
+        font-size: 1.5rem;
+        margin-top: 30px;
+        color: rgba(57, 57, 57, 0.848);
+    }
+
+    .garisBiru {
+        height: 150px;
+    }
+
+    .garisBiru h1 {
+        margin-left: 50px;
+        font-size: 5rem;
+    }
+
+    .garisBiru h1 span {
+        font-size: 5rem;
+    }
+
+    .garisBiru img {
+        transform: translateX(-50%);
+        width: 85px;
+        height: 85px;
+    }
+
+    .about {
+        height: 1000px;
+    }
+
+    .about .box_2 {
+        transform: translateY(100%);
+        transform: translateX(-68%);
     }
 }
 

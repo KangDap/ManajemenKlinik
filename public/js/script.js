@@ -125,3 +125,9 @@ window.addEventListener('scroll', function () {
 });
 
 window.dispatchEvent(new Event('scroll'));
+
+const sidebar = document.querySelector('.navigation-mobile');
+
+document.querySelector('#hamburger').onclick = () => {
+    sidebar.classList.toggle('active');
+};

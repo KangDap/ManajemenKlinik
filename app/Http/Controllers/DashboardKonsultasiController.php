@@ -140,6 +140,8 @@ class DashboardKonsultasiController extends Controller
             'catatan' => 'required'
         ]);
 
+        $validatedData['status'] = 'Menunggu';
+
         Konsultasi::where('id', $konsultasi->id)
             ->update($validatedData);
 

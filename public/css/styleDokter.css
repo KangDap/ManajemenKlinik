@@ -30,6 +30,17 @@ html {
 }
 
 /* NAVIGATION */
+.navigation-mobile {
+    display: none;
+}
+.brand-logo a#hamburger {
+    display: none;
+}
+
+#hamburger {
+    position: absolute;
+}
+
 .wrapper {
     position: fixed;
     display: flex;
@@ -1332,6 +1343,55 @@ footer .links a {
     html,
     body {
         font-size: 55%;
+    }
+
+    .brand-logo a#hamburger {
+        display: flex;
+        margin-left: 15px;
+        transform: translateX(10px);
+        transform: translateY(12px);
+        color: white;
+        transition: all .3s;
+    }
+
+    .brand-logo a#hamburger:hover {
+        color: rgb(0, 195, 255)
+    }
+
+    #hamburger {
+        visibility: visible;
+        position: absolute;
+        font-size: 60px;
+    }
+
+    .navigation-mobile {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        background: linear-gradient(to bottom, rgb(124, 225, 255), rgb(94, 217, 255), rgb(124, 225, 255));
+        width: 27rem;
+        height: 100vh;
+        display: inline-block;
+        transition: all .5s;
+        box-shadow: inset 0 -2px 0 5px rgb(255, 255, 255)
+    }
+
+    .navigation-mobile>li>a {
+        font-size: 2.3rem;
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        color: white;
+        font-weight: 550;
+        transition: all .3s;
+    }
+
+    .navigation-mobile>li>a:hover {
+        color: rgb(0, 89, 156);
+    }
+
+    .navigation-mobile.active {
+        left: 0
     }
 
     .navigation {

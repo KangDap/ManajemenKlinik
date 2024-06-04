@@ -35,6 +35,7 @@
         </div>
         <div class="brand-logo">
             <a href="/dashboard"><img src="assets/img/logo/logo.png"></a>
+            <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>
         </div>
         <ul class="navigation">
             <li><a href="/dashboard">Beranda</a></li>
@@ -42,6 +43,17 @@
             <li><a href="/dashboard#doctor">Dokter</a></li>
             <li><a href="/dashboard#medis">Informasi Medis</a></li>
             <li><a href="/konsultasi" id="konsul">Konsultasi</a></li>
+        </ul>
+        <ul class="navigation-mobile">
+            <li><a href="#home" class="beranda-active">Beranda</a></li>
+            <li><a href="#about" class="about-active">Tentang Kami</a></li>
+            <li><a href="#doctor" class="doctor-active">Dokter</a></li>
+            <li><a href="#medis" class="medis-active">Informasi Medis</a></li>
+            @auth
+            <li><a href="#" style="color: rgb(76, 142, 255)">{{$nama}}</a></li>
+            @else
+            <li><a href="/login" class="medis-active">Login</a></li>
+            @endauth
         </ul>
         <div class="garis"></div>
         @auth
@@ -124,7 +136,7 @@
                             <th>Nama Dokter</th>
                             <th>Tanggal</th>
                             <th>Jam</th>
-                            <th>Catatan</th>
+                            <th>Keluhan</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -135,7 +147,7 @@
                             <td>{{$konsultasi->id}}</td>
                             <td>{{$konsultasi->ruangan->id}}</td>
                             <td>{{$konsultasi->pasien->nama}}</td>
-                            <td>{{$konsultasi->dokter->nama}}</td>
+                            <td>{{"Dr. " . $konsultasi->dokter->nama}}</td>
                             <td>{{$konsultasi->formattedDate()}}</td>
                             <td>{{$konsultasi->formattedTime()}}</td>
                             <td>{!! nl2br(e($konsultasi->catatan)) !!}</td>

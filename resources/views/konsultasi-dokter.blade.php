@@ -35,6 +35,7 @@
         </div>
         <div class="brand-logo">
             <a href="/dashboard"><img src="assets/img/logo/logo.png"></a>
+            <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>
         </div>
         <ul class="navigation">
             <li><a href="/dashboard#home" class="beranda-active">Beranda</a></li>
@@ -43,16 +44,27 @@
             <li><a href="/dashboard#medis" class="medis-active">Informasi Medis</a></li>
             <li><a href="/konsultasi" id="konsul">Konsultasi</a></li>
         </ul>
+        <ul class="navigation-mobile">
+            <li><a href="/dashboard#home" class="beranda-active">Beranda</a></li>
+            <li><a href="/dashboard#about" class="about-active">Tentang Kami</a></li>
+            <li><a href="/dashboard#doctor" class="doctor-active">Dokter</a></li>
+            <li><a href="/dashboard#medis" class="medis-active">Informasi Medis</a></li>
+            @auth
+            <li><a href="/dashboard#home" style="color: rgb(76, 142, 255)">{{"Dr. " . $nama}}</a></li>
+            @else
+            <li><a href="/login" class="medis-active">Login</a></li>
+            @endauth
+        </ul>
         <div class="garis"></div>
         @auth
         <div class="login">
             <p>Selamat Datang</p>
-            <h3 onclick="toggleMenu()">{{explode(' ', $nama)[0]}}</h3>
+            <h3 onclick="toggleMenu()">{{"Dr. " . explode(' ', $nama)[0]}}</h3>
         </div>
         <div class="sub-menu-wrap" id="subMenu">
             <div class="sub-menu">
                 <div class="user-info">
-                    <h2>{{$nama}}</h2>
+                    <h2>{{"Dr. " . $nama}}</h2>
                 </div>
                 <hr>
                 <a href="/dashboard" class="sub-menu-links" id="sub1">
@@ -124,7 +136,7 @@
                             <th>Nama Dokter</th>
                             <th>Tanggal</th>
                             <th>Jam</th>
-                            <th>Catatan</th>
+                            <th>Keluhan</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -135,12 +147,13 @@
                             <td>{{$konsultasi->id}}</td>
                             <td>{{$konsultasi->ruangan->id}}</td>
                             <td>{{$konsultasi->pasien->nama}}</td>
-                            <td>{{$konsultasi->dokter->nama}}</td>
+                            <td>{{ "Dr. " . $konsultasi->dokter->nama}}</td>
                             <td>{{$konsultasi->formattedDate()}}</td>
                             <td>{{$konsultasi->formattedTime()}}</td>
                             <td>{!! nl2br(e($konsultasi->catatan)) !!}</td>
                             <td class="status {{ $konsultasi->status == 'Diterima' ? 'status-diterima' : ($konsultasi->status == 'Ditolak' ? 'status-ditolak' : 'status-menunggu') }}">{{$konsultasi->status}}</td>
                             <td>
+                                @if ($konsultasi->status == 'Menunggu')
                                 <form action="{{ route('konsultasi.changeStatus', $konsultasi->id) }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="status" value="Diterima">
@@ -152,6 +165,9 @@
                                     <button type="submit" class="aksi-tolak">Tolak</button>
                                 </form>
                                 <a href="/konsultasi/{{$konsultasi->id}}" class="aksi-edit">Edit</a>
+                                @else
+                                <a href="/konsultasi/{{$konsultasi->id}}" class="aksi-edit">Edit</a>
+                                @endif
                         </tr>
                     </tbody>
                     @endforeach

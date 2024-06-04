@@ -38,12 +38,24 @@
         </div>
         <div class="brand-logo">
             <a href="#home"><img src={{ asset('assets/img//logo/logo.png') }}></a>
+            <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>
         </div>
         <ul class="navigation">
             <li><a href="#home" class="beranda-active">Beranda</a></li>
             <li><a href="#about" class="about-active">Tentang Kami</a></li>
             <li><a href="#doctor" class="doctor-active">Dokter</a></li>
             <li><a href="#medis" class="medis-active">Informasi Medis</a></li>
+        </ul>
+        <ul class="navigation-mobile">
+            <li><a href="#home" class="beranda-active">Beranda</a></li>
+            <li><a href="#about" class="about-active">Tentang Kami</a></li>
+            <li><a href="#doctor" class="doctor-active">Dokter</a></li>
+            <li><a href="#medis" class="medis-active">Informasi Medis</a></li>
+            @auth
+            <li><a href="/" style="color: rgb(76, 142, 255)">{{$nama}}</a></li>
+            @else
+            <li><a href="/login" class="medis-active">Login</a></li>
+            @endauth
         </ul>
         <div class="garis"></div>
         @auth

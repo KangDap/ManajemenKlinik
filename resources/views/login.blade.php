@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="fonts/SparkyStonesRegular-BW6ld.ttf">
     <link rel="icon" href="assets/img//logo/logo.png" type="icon">
-    <script src="scripts/script.js" defer></script>
+    <script src="{{ asset('js/script.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/dd20ffdac4.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Rodaza Clinic | {{$title}}</title>
@@ -32,12 +32,24 @@
         </div>
         <div class="brand-logo">
             <a href="/"><img src="assets/img//logo/logo.png"></a>
+            <a href="#" id="hamburger"><i class="fa-solid fa-bars"></i></a>
         </div>
         <ul class="navigation">
             <li><a href="/">Beranda</a></li>
             <li><a href="/#about">Tentang Kami</a></li>
             <li><a href="/#doctor">Dokter</a></li>
             <li><a href="/#medis">Informasi Medis</a></li>
+        </ul>
+        <ul class="navigation-mobile">
+            <li><a href="/">Beranda</a></li>
+            <li><a href="/#about">Tentang Kami</a></li>
+            <li><a href="/#dokter">Dokter</a></li>
+            <li><a href="/#medis">Informasi Medis</a></li>
+            @auth
+            <li><a href="/" style="color: rgb(76, 142, 255)">{{$nama}}</a></li>
+            @else
+            <li><a href="/login" class="medis-active">Login</a></li>
+            @endauth
         </ul>
         <div class="garis"></div>
         <div class="login">
